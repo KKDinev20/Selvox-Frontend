@@ -3,12 +3,7 @@
 <template>
     <nav>
         <a href="#" class="logo">Selvox</a>
-        <div class="links">
-            <a href="#">Home</a>
-            <a href="#">Features</a>
-            <a href="#">Blog</a>
-        </div>
-        <button> I'M READY</button>
+        <button> Get Started</button>
     </nav>
 
     
@@ -16,10 +11,8 @@
     <div class="cols">
         <div class="flex mb-4 space-x-4">
             <div class="w-3/5 containder">
-
-
-                <button> I'M READY</button>
-            </div>
+                <h1 class="text-2xl heady">Find your dream job with Selvox</h1>
+                <p class="parBody">Stop feeling lost in your job search!  Selvox helps you discover your dream career by analyzing your psychological behavior and brain patterns.  Unlock your full potential and find a job that excites you. Get started with your free personality assessment today!</p>            </div>
             <div class="w-2/5 containder">
                 <img src="../assets/LP.png" alt="photo"/>
             </div>
@@ -28,6 +21,18 @@
 </template>
 
 <style>
+
+.parBody {
+  margin: 40px;
+  font-size: 30px;
+}
+
+.heady {
+    margin: 40px;
+    padding-top: 20px;
+    font-weight: 700;
+    font-size: 40px;
+}
 
 .cols {
     margin: 30px 20px;
@@ -40,7 +45,7 @@
 }
 
 .containder:first-child {
-    background-color: lemonchiffon;
+    background-color: rgba(255, 250, 205, 0.29);
 }
 
 .containder:last-child {
