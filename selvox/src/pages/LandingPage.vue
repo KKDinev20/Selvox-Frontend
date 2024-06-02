@@ -11,13 +11,17 @@
         <button> I'M READY</button>
     </nav>
 
+    
+
     <div class="cols">
         <div class="flex mb-4 space-x-4">
-            <div class="w-2/5  bg-yellow-400  containder">
+            <div class="w-3/5 containder">
 
+
+                <button> I'M READY</button>
             </div>
-            <div class="w-3/5 bg-gray-500 h-12 containder">
-
+            <div class="w-2/5 containder">
+                <img src="../assets/LP.png" alt="photo"/>
             </div>
         </div>
     </div>
@@ -26,7 +30,7 @@
 <style>
 
 .cols {
-    margin: 40px ;
+    margin: 30px 20px;
     gap: 20px;
 }
 
@@ -40,7 +44,14 @@
 }
 
 .containder:last-child {
-    background-color: lightpink;
+    background: rgba(255, 202, 212, 0.29);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(222, 172, 185, 0.1);
+    backdrop-filter: blur(8.1px);
+    -webkit-backdrop-filter: blur(8.1px);
+    justify-content: center;
+    flex-flow: row nowrap;
+    display: flex;
 }
 nav {
   padding: 20px 40px;
@@ -61,7 +72,7 @@ nav a.logo {
 }
 
 button {
-  --green: #FFB7CA;
+  --pink: #FFB7CA;
   font-size: 15px;
   padding: 0.7em 2.7em;
   letter-spacing: 0.06em;
@@ -71,9 +82,8 @@ button {
   overflow: hidden;
   transition: all 0.3s;
   line-height: 1.4em;
-  border: 2px solid var(--green);
-  background: linear-gradient(to right, rgba(207, 137, 171, 0.1) 1%, transparent 40%,transparent 60% , rgba(218, 161, 192, 0.1) 100%);
-  color: var(--green);
+  border: 2px solid var(--pink);
+  color: var(--pink);
   box-shadow: inset 0 0 10px rgba(255, 183, 202, 0.4), 0 0 9px 3px rgba(255, 183, 202, 0.1);
 }
 
