@@ -11,25 +11,53 @@
         <button> I'M READY</button>
     </nav>
 
+    <div class="cols">
+        <div class="flex mb-4 space-x-4">
+            <div class="w-2/5  bg-yellow-400  containder">
+
+            </div>
+            <div class="w-3/5 bg-gray-500 h-12 containder">
+
+            </div>
+        </div>
+    </div>
 </template>
 
 <style>
-nav{
-    padding: 60px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 80px;
+
+.cols {
+    margin: 40px ;
+    gap: 20px;
+}
+
+.containder {
+    height: 75vh;
+
+}
+
+.containder:first-child {
+    background-color: lemonchiffon;
+}
+
+.containder:last-child {
+    background-color: lightpink;
+}
+nav {
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
 }
 
 nav .links {
-    font-size: 18px;
+  font-size: 18px;
 }
 
-nav a.logo{
-    font-size: 33px;
-    color: #FFB7CA;
-    font-weight: 600;
+nav a.logo {
+  font-size: 33px;
+  color: #FFB7CA;
+  font-weight: 600;
 }
 
 button {
@@ -68,7 +96,23 @@ button:before {
 button:hover:before {
   transform: translateX(15em);
 }
-nav .links a:not(:last-child){
-    margin-right: 60px;
+
+nav .links a:not(:last-child) {
+  margin-right: 60px;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-wrap: wrap; /* Wrap content on smaller screens */
+    justify-content: center; /* Center content horizontally */
+  }
+  .links {
+    margin-top: 20px; /* Add space between logo and links on smaller screens */
+    text-align: center; /* Center links vertically */
+  }
+  button {
+    margin-top: 10px; /* Add space between links and button on smaller screens */
+  }
 }
 </style>
