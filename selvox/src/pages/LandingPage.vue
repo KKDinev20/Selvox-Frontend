@@ -1,7 +1,8 @@
 <template>
 <body>
     <header>
-        <div class="logo"><span>Selvox</span></div>
+        <div class="menu">Selvox</div>
+        <div class="logo"><img src="../assets/SelvoxLogo2.png" alt="selvox"></div>
         <button class="learn-price">Learn Price</button>
     </header>
     <main>
@@ -47,13 +48,14 @@ header {
 }
 
 .menu {
-    font-size: 1.2em;
-    cursor: pointer;
+  font-size: 2em;
+  font-weight: bold;
+  color: #FFB7CA;
 }
 
 .logo {
-    font-size: 1.5em;
-    font-weight: bold;
+  height: 5vh;
+  width: 5vw;
 }
 
 .learn-price {
@@ -86,6 +88,7 @@ main {
     align-items: stretch;
     width: 80%;
     gap: 20px;
+    flex-wrap: wrap;
     height: 90%;
 }
 
