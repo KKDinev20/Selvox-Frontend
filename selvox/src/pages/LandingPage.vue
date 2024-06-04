@@ -1,133 +1,155 @@
-
-
 <template>
-    <nav>
-        <a href="#" class="logo">Selvox</a>
-        <button> Get Started</button>
-    </nav>
-
-    
-
-    <div class="cols">
-        <div class="flex mb-4 space-x-4">
-            <div class="w-3/5 containder">
-                <h1 class="text-2xl heady">Find your dream job with Selvox</h1>
-                <p class="parBody">Stop feeling lost in your job search!  Selvox helps you discover your dream career by analyzing your psychological behavior and brain patterns.  Unlock your full potential and find a job that excites you. Get started with your free personality assessment today!</p>            </div>
-            <div class="w-2/5 containder">
-                <img src="../assets/LP.png" alt="photo"/>
+<body>
+    <header>
+        <div class="logo"><span>Selvox</span></div>
+        <button class="learn-price">Learn Price</button>
+    </header>
+    <main>
+        <div class="content">
+            <div class="text-container">
+                <div class="text-section">
+                    <h1>Stop feeling lost in your job search!  <span>Selvox</span> helps you discover your dream career by analyzing your psychological behavior and brain patterns.  Unlock your full potential and find a job that excites you. Get started today!</h1>
+                    <button class="get-started">Get Started</button>
+                    <br>
+                    <a href="#" class="learn-more">Looking for startup jobs? Learn more here.</a>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="../assets/LP.png" alt="Phone Mockup">
             </div>
         </div>
-    </div>
+    </main>
+</body>
 </template>
 
-<style>
+<style scoped>
 
-.parBody {
-  margin: 40px;
-  font-size: 30px;
+span {
+  color: #FDA1BA;
 }
 
-.heady {
-    margin: 40px;
-    padding-top: 20px;
-    font-weight: 700;
-    font-size: 40px;
+h1 {
+  font-weight: 200;
 }
 
-.cols {
-    margin: 30px 20px;
-    gap: 20px;
+body {
+    font-family: 'Helvetica', sans-serif;
+    margin: 0;
+    background: #fcfcfc;
+    color: #3A445D;
 }
 
-.containder {
-    height: 75vh;
-
-}
-
-.containder:first-child {
-    background-color: rgba(255, 250, 205, 0.29);
-}
-
-.containder:last-child {
-    background: rgba(255, 202, 212, 0.29);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(222, 172, 185, 0.1);
-    backdrop-filter: blur(8.1px);
-    -webkit-backdrop-filter: blur(8.1px);
-    justify-content: center;
-    flex-flow: row nowrap;
+header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }
-nav {
-  padding: 20px 40px;
+
+.menu {
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.learn-price {
+     --pink: #FFB7CA;
+    font-size: 15px;
+    padding: 0.7em 2.0em;
+    letter-spacing: 0.06em;
+    position: relative;
+    font-family: inherit;
+    border-radius: 0.6em;
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 2px solid var(--pink);
+    color: var(--pink);
+    box-shadow: inset 0 0 10px rgba(255, 183, 202, 0.4), 0 0 9px 3px rgba(255, 183, 202, 0.1);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    align-items: center;
+    height: calc(100vh - 60px);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 80%;
+    gap: 20px;
+    height: 90%;
+}
+
+.text-container {    
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    flex: 1;
 }
 
-nav .links {
-  font-size: 18px;
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex: 1;
 }
 
-nav a.logo {
-  font-size: 33px;
-  color: #FFB7CA;
-  font-weight: 600;
+.text-section {
+    max-width: 80%;
 }
 
-button {
-  --pink: #FFB7CA;
-  font-size: 15px;
-  padding: 0.7em 2.7em;
-  letter-spacing: 0.06em;
-  position: relative;
-  font-family: inherit;
-  border-radius: 0.6em;
-  overflow: hidden;
-  transition: all 0.3s;
-  line-height: 1.4em;
-  border: 2px solid var(--pink);
-  color: var(--pink);
-  box-shadow: inset 0 0 10px rgba(255, 183, 202, 0.4), 0 0 9px 3px rgba(255, 183, 202, 0.1);
+.users {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-button:hover {
-  color: #FFB7CA;
-  box-shadow: inset 0 0 10px rgba(253, 204, 232, 0.6), 0 0 9px 3px rgba(229, 162, 226, 0.2);
+.users img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-button:before {
-  content: "";
-  position: absolute;
-  left: -4em;
-  width: 4em;
-  height: 100%;
-  top: 0;
-  transition: transform .4s ease-in-out;
-  background: linear-gradient(to right, transparent 1%, rgba(219, 132, 186, 0.1) 40%,rgba(196, 129, 164, 0.1) 60% , transparent 100%);
+.users span {
+    font-size: 1em;
 }
 
-button:hover:before {
-  transform: translateX(15em);
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
-nav .links a:not(:last-child) {
-  margin-right: 60px;
+.get-started {
+    background: #d784b5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-/* Media Queries for responsiveness */
-@media screen and (max-width: 768px) {
-  nav {
-    flex-wrap: wrap; /* Wrap content on smaller screens */
-    justify-content: center; /* Center content horizontally */
-  }
-  .links {
-    margin-top: 20px; /* Add space between logo and links on smaller screens */
-    text-align: center; /* Center links vertically */
-  }
-  button {
-    margin-top: 10px; /* Add space between links and button on smaller screens */
-  }
+.learn-more {
+    color: #d784b5;
+    text-decoration: none;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
 }
 </style>
