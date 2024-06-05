@@ -1,21 +1,40 @@
+<script setup>
+import { ref, computed } from 'vue'
+import Login from './Login.vue'
+
+const routes = {
+  '/login': Login,
+}
+
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/'] || NotFound
+})
+</script>
+
+
 <template>
 <body>
     <header>
         <div class="menu">Selvox</div>
         <div class="logo"><img src="../assets/SelvoxLogo2.png" alt="selvox"></div>
-        <button class="learn-price">Learn Price</button>
+        <button class="learn-price">Get started</button>
     </header>
     <main>
         <div class="content">
             <div class="text-container">
                 <div class="text-section">
                     <h1>Stop feeling lost in your job search!  <span>Selvox</span> helps you discover your dream career by analyzing your psychological behavior and brain patterns.  Unlock your full potential and find a job that excites you. Get started today!</h1>
-                    <button class="get-started">Get Started</button>
-                    <br>
-                    <a href="#" class="learn-more">Looking for startup jobs? Learn more here.</a>
+                    <a class="learn-price">Join now</a>
+ 
                 </div>
             </div>
-            <div class="image-container">
+            <div class="image-container img-hero">
                 <img src="../assets/LP.png" alt="Phone Mockup">
             </div>
         </div>
@@ -42,9 +61,15 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
+}
+
+.image-container img-hero 
+{
+    height: 50vh;
+    width: 50vw;
 }
 
 .menu {
@@ -84,10 +109,10 @@ main {
 
 .content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: stretch;
     width: 80%;
-    gap: 20px;
+    gap: 10%;
     flex-wrap: wrap;
     height: 90%;
 }
@@ -96,7 +121,7 @@ main {
   display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     gap: 10px;
     flex: 1;
 }
@@ -135,16 +160,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.get-started {
-    background: #d784b5;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
 
 .learn-more {
     color: #d784b5;
