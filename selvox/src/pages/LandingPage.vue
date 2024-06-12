@@ -61,9 +61,9 @@ body {
 
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 20px 0px 20px;
+    padding: 20px;
 }
 
 .image-container img-hero 
@@ -111,14 +111,14 @@ main {
     display: flex;
     justify-content: space-around;
     align-items: stretch;
-    width: 80%;
+    width: 100%;
     gap: 10%;
     flex-wrap: wrap;
     height: 90%;
 }
 
 .text-container {    
-  display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
@@ -128,6 +128,8 @@ main {
 
 .image-container {
     display: flex;
+    max-width: 100%;
+    height: 70vh;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -135,7 +137,8 @@ main {
 }
 
 .text-section {
-    max-width: 80%;
+    max-width: 100%;
+    margin-right: 20px;
 }
 
 .users {
