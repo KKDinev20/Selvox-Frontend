@@ -1,20 +1,4 @@
 <script setup>
-import { ref, computed } from 'vue'
-import Login from './Login.vue'
-
-const routes = {
-  '/login': Login,
-}
-
-const currentPath = ref(window.location.hash)
-
-window.addEventListener('hashchange', () => {
-  currentPath.value = window.location.hash
-})
-
-const currentView = computed(() => {
-  return routes[currentPath.value.slice(1) || '/'] || NotFound
-})
 </script>
 
 
@@ -23,7 +7,7 @@ const currentView = computed(() => {
     <header>
         <div class="menu">Selvox</div>
         <div class="logo"><img src="../assets/SelvoxLogo2.png" alt="selvox"></div>
-        <button class="learn-price">Get started</button>
+        <router-link to="/login">About</router-link>
     </header>
     <main>
         <div class="content">
@@ -61,7 +45,7 @@ body {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 20px;
 }
@@ -113,6 +97,7 @@ main {
     align-items: stretch;
     width: 100%;
     gap: 10%;
+    margin: 50px;
     flex-wrap: wrap;
     height: 90%;
 }
@@ -122,6 +107,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    margin: 50px;
     gap: 10px;
     flex: 1;
 }
