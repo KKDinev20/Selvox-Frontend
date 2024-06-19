@@ -12,7 +12,7 @@ export const Button = () => {
   };
 
   return (
-    <Link href="/general/page">
+    <Link href="/general/register">
       <button
         type="button"
         onClick={handleButtonClick}
