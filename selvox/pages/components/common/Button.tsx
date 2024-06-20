@@ -12,14 +12,13 @@ export const Button = () => {
   };
 
   return (
-    <Link href="/general/forms/register">
+    
       <button
         type="button"
         onClick={handleButtonClick}
-        className="bg-logo bg-opacity-60 px-8 py-4 font-semibold inline-flex items-center space-x-2 rounded-2xl"
+        className="bg-logo bg-opacity-60 px-4 py-3 font-semibold inline-flex items-center space-x-2 rounded-2xl"
       >
         Get Started
       </button>
-    </Link>
   );
 };
