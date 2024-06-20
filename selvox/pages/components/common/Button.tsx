@@ -8,11 +8,11 @@ export const Button = () => {
 
   const handleButtonClick = () => {
     // Programmatic navigation using useRouter
-    router.push('/general/page');
+    router.push('/general/forms/register');
   };
 
   return (
-    <Link href="/general/register">
+    <Link href="/general/forms/register">
       <button
         type="button"
         onClick={handleButtonClick}
