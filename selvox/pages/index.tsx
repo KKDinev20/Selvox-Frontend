@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       <div data-aos="flip-up" className="max-w-xl mx-auto text-center mt-12 ">
-        <h1 className="font-bold text-darken my-3 text-4xl">
+        <h1 id = "about"className="font-bold text-darken my-3 text-4xl">
           About<span className="text-navbar"> Selvox</span>
         </h1>
         <p className="leading-relaxed text-gray-500">

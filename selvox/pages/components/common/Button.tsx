@@ -8,7 +8,7 @@ export const Button = () => {
 
   const handleButtonClick = () => {
     // Programmatic navigation using useRouter
-    router.push('/general/forms/register');
+    router.push('/general/auth/register');
   };
 
   return (
@@ -16,7 +16,7 @@ export const Button = () => {
       <button
         type="button"
         onClick={handleButtonClick}
-        className="bg-logo bg-opacity-60 px-4 py-3 font-semibold inline-flex items-center space-x-2 rounded-2xl"
+        className="bg-logo bg-opacity-60 px-4 py-3 font-medium inline-flex items-center space-x-2 rounded-2xl"
       >
         Get Started
       </button>
