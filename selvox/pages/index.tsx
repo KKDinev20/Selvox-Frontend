@@ -21,7 +21,7 @@ export default function Home() {
               potential and find a job that excites you.
             </p>
             <a
-              href="/general/page"
+              href="/general/forms/register"
               className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center bg-button text-gray-900 rounded-lg border border-gray-300"
             >
               Find your dream job
