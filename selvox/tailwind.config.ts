@@ -11,7 +11,8 @@ const config: Config = {
       colors: {
         'navbar': '#F9A6BF',
         'logo': '#F6B2C6',
-        'button': '#FCD2DF'
+        'button': '#FCD2DF',
+        'rose-quartz' : "#FFF8FA"
       }
     },
   },
