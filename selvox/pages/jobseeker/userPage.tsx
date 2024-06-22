@@ -74,7 +74,7 @@ export default function Profile() {
     return (
         <div className="flex items-center justify-center">
             <div  className="bg-rose-quartz text-gray-500 box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; w-2/4 h-2/4 rounded-md overflow-hidden my-16 mx-10 md:px-10">
+  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; w-2/4 h-2/4 rounded-md overflow-hidden my-12 mx-10 md:px-10">
                 <div className="md:flex w-full">
                     <div className="w-full py-16 px-10 md:px-10">
                         <div className="text-center mb-10">

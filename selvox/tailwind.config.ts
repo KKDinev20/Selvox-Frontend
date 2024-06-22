@@ -12,7 +12,7 @@ const config: Config = {
         'navbar': '#F9A6BF',
         'logo': '#F6B2C6',
         'button': '#FCD2DF',
-        'rose-quartz' : "#FFF8FA"
+        'rose-quartz' : "#F8E3E9",
       }
     },
   },

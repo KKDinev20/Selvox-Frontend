@@ -51,7 +51,7 @@ export default function Register() {
           <div className="hidden md:block w-1/2 bg-button py-10 px-10">
             <img src="/Register.svg" className="w-100 h-auto" />
           </div>
-          <div className="w-full md:w-1/2 py-16 px-10 md:px-10">
+          <div className="w-full md:w-1/2 py-20 px-20 md:px-10">
             <div className="text-center mb-10">
               <h1 className="font-bold text-3xl text-gray-900">Sign up</h1>
               <p>Start your journey by making a new account</p>
@@ -115,7 +115,7 @@ export default function Register() {
                   </div>
                 </div>
                 <div className="flex -mx-3">
-                  <div className="w-full px-3 mb-12">
+                  <div className="w-full px-3 mb-6">
                     <label className="text-xs font-semibold px-1">
                       Password
                     </label>

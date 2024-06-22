@@ -44,18 +44,18 @@ export default function Login() {
               return '/employer/dashboard';
           case 'jobseeker':
           default:
-              return '/jobseeker/userPage';
+              return '/jobseeker/dashboard';
       }
   };
 
     return (
         <div className="flex items-center justify-center">
-            <div className="bg-gray-100 text-gray-500 shadow-xl w-full h-3/4 overflow-hidden">
-                <div className="md:flex w-full">
+            <div className="bg-gray-100 text-gray-500 shadow-xl  w-full  overflow-hidden">
+                <div className="md:flex w-full h-screen">
                     <div className="hidden md:block w-1/2 bg-button py-10 px-10">
                         <img src="/Login.png" className="w-100 h-auto" />
                     </div>
-                    <div className="w-full md:w-1/2 py-16 px-10 md:px-10">
+                    <div className="w-full md:w-1/2 md:px-10 py-40 px-16">
                         <div className="text-center mb-10">
                             <h1 className="font-bold text-3xl text-gray-900">Log in</h1>
                             <p>Access your account</p>
