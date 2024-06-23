@@ -13,7 +13,8 @@ const config: Config = {
         'logo': '#F6B2C6',
         'button': '#FCD2DF',
         'rose-quartz' : "#F8E3E9",
-        'white': "#F0E9E9"
+        'white': "#F0E9E9",
+        'even': "#EAE2E2"
       }
     },
   },

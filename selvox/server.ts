@@ -13,7 +13,7 @@ app.prepare().then(() => {
 
   // Proxy API requests
   server.use('/api', createProxyMiddleware({
-    target: 'http://localhost:7095', // Adjust the port as needed
+    target: 'http://localhost:3000', // Adjust the port as needed
     changeOrigin: true,
     pathRewrite: {
       '^/api': '/api',
