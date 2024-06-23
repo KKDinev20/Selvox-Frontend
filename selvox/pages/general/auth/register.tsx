@@ -147,7 +147,7 @@ export default function Register() {
                       name="role"
                       value={form.role}
                       onChange={handleChange}
-                      className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     >
                       <option value="jobseeker">Jobseeker</option>
                       <option value="employer">Employer</option>
@@ -157,7 +157,7 @@ export default function Register() {
                 </div>
                 <button
                   type="submit"
-                  className="block w-full max-w-xs mx-auto bg-button text-gray-900 hover:bg-navbar focus:bg-navbar rounded-lg px-3 py-3 font-semibold"
+                  className="block w-1/3 max-w-xs mx-auto bg-button text-gray-900 hover:bg-navbar focus:bg-navbar rounded-lg px-3 py-3 font-semibold"
                 >
                   Sign up
                 </button>
