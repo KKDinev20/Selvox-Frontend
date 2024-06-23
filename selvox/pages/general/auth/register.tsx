@@ -51,7 +51,7 @@ export default function Register() {
           <div className="hidden md:block w-1/2 bg-button py-10 px-10">
             <img src="/Register.svg" className="w-100 h-auto" />
           </div>
-          <div className="w-full md:w-1/2 py-16 px-10 md:px-10">
+          <div className="w-full md:w-1/2 py-20 px-20 md:px-10">
             <div className="text-center mb-10">
               <h1 className="font-bold text-3xl text-gray-900">Sign up</h1>
               <p>Start your journey by making a new account</p>
@@ -115,7 +115,7 @@ export default function Register() {
                   </div>
                 </div>
                 <div className="flex -mx-3">
-                  <div className="w-full px-3 mb-12">
+                  <div className="w-full px-3 mb-6">
                     <label className="text-xs font-semibold px-1">
                       Password
                     </label>
@@ -147,7 +147,7 @@ export default function Register() {
                       name="role"
                       value={form.role}
                       onChange={handleChange}
-                      className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     >
                       <option value="jobseeker">Jobseeker</option>
                       <option value="employer">Employer</option>
@@ -157,7 +157,7 @@ export default function Register() {
                 </div>
                 <button
                   type="submit"
-                  className="block w-full max-w-xs mx-auto bg-button text-gray-900 hover:bg-navbar focus:bg-navbar rounded-lg px-3 py-3 font-semibold"
+                  className="block w-1/3 max-w-xs mx-auto bg-button text-gray-900 hover:bg-navbar focus:bg-navbar rounded-lg px-3 py-3 font-semibold"
                 >
                   Sign up
                 </button>
