@@ -1,4 +1,4 @@
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 
 const EmployerLayout = ({ children }) => {
   return (

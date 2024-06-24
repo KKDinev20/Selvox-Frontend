@@ -1,103 +1,127 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState } from "react";
+import Sidebar from "./sidebar";
 
-export default function AddJob() {
-    const router = useRouter();
-    const [form, setForm] = useState({
-        jobTitle: '',
-        jobDescription: '',
-        location: '',
-        salaryRange: '',
-    });
+const PostJobOffer = () => {
+  const [jobOffer, setJobOffer] = useState({
+    employerId: "",
+    jobRoleId: "",
+    jobTitle: "",
+    jobDescription: "",
+    location: "",
+    salaryRange: "",
+    postedDate: "",
+    expirationDate: "",
+  });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setForm({
-            ...form,
-            [name]: value,
-        });
-    };
+  const handleChange = (e) => {
+    setJobOffer({ ...jobOffer, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const res = await fetch('https://localhost:7095/api/JobListing', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(form),
-            });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("/api/joboffers", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jobOffer),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle success or error
+        console.log(data);
+      });
+  };
 
-            if (res.ok) {
-                const data = await res.json();
-                console.log(data); // Debugging: check response from backend
-                router.push('/employer/jobListings'); // Redirect to job listings page after successful addition
-            } else {
-                const errorData = await res.json();
-                throw new Error(errorData.message || 'Failed to add job listing');
-            }
-        } catch (error) {
-            console.error('Add job error:', error);
-            alert('Failed to add job listing. Please try again.'); // Basic error handling
-        }
-    };
+  return (
+    <>
+    <div className="flex">
+    <Sidebar/>
+    <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden md:max-w-2xl m-3">
+      <h2 className="bg-navbar text-white py-2 px-6 font-bold uppercase">
+        Post a Job Offer
+      </h2>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <input
+          type="text"
+          name="employerId"
+          placeholder="Employer ID"
+          value={jobOffer.employerId}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="text"
+          name="jobRoleId"
+          placeholder="Job Role ID"
+          value={jobOffer.jobRoleId}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="text"
+          name="jobTitle"
+          placeholder="Job Title"
+          value={jobOffer.jobTitle}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+        />
+        <textarea
+          name="jobDescription"
+          placeholder="Job Description"
+          value={jobOffer.jobDescription}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500 h-20 resize-none overflow-auto"
+        ></textarea>
+        <input
+          type="text"
+          name="location"
+          placeholder="Location"
+          value={jobOffer.location}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="number"
+          name="salaryRange"
+          placeholder="Salary Range"
+          value={jobOffer.salaryRange}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="date"
+          name="postedDate"
+          placeholder="Posted Date"
+          value={jobOffer.postedDate}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+        />
+        <input
+          type="date"
+          name="expirationDate"
+          placeholder="Expiration Date"
+          value={jobOffer.expirationDate}
+          onChange={handleChange}
+          required
+          className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
+        />
+        <button
+          type="submit"
+          className="w-full py-2 bg-navbar text-white font-bold rounded"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    </div>
+    </>
+  );
+};
 
-    return (
-        <div className="container mx-auto mt-10">
-            <h1 className="text-3xl font-bold mb-5">Add Job Listing</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="mb-4">
-                    <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">Job Title</label>
-                    <input
-                        type="text"
-                        id="jobTitle"
-                        name="jobTitle"
-                        value={form.jobTitle}
-                        onChange={handleChange}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm"
-                        required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="jobDescription" className="block text-sm font-medium text-gray-700">Job Description</label>
-                    <textarea
-                        id="jobDescription"
-                        name="jobDescription"
-                        value={form.jobDescription}
-                        onChange={handleChange}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm"
-                        required
-                    ></textarea>
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</label>
-                    <input
-                        type="text"
-                        id="location"
-                        name="location"
-                        value={form.location}
-                        onChange={handleChange}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm"
-                        required
-                    />
-                </div>
-                <div className="mb-4">
-                    <label htmlFor="salaryRange" className="block text-sm font-medium text-gray-700">Salary Range</label>
-                    <input
-                        type="text"
-                        id="salaryRange"
-                        name="salaryRange"
-                        value={form.salaryRange}
-                        onChange={handleChange}
-                        className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm"
-                        required
-                    />
-                </div>
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-sm">
-                    Add Job Listing
-                </button>
-            </form>
-        </div>
-    );
-}
+export default PostJobOffer;
