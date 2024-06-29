@@ -99,15 +99,23 @@ const jobFields = [
   "Media",
 ];
 
+const scoreMapping = {
+  1: 20, // Fully Disagree
+  2: 40, // Disagree
+  3: 60, // Neutral
+  4: 80, // Agree
+  5: 100, // Fully Agree
+};
+
 const TestComponent = ({ userId }) => {
   const [answers, setAnswers] = useState(Array(testQuestions.length).fill(3));
   const [currentPage, setCurrentPage] = useState(1); // Current page
-  const [itemsPerPage, setItemsPerPage] = useState(5); // Items per page
+  const itemsPerPage = 5; // Items per page
   const router = useRouter();
 
   const handleChange = (index, value) => {
     const newAnswers = [...answers];
-    newAnswers[index] = value;
+    newAnswers[index] = scoreMapping[value];
     setAnswers(newAnswers);
   };
 
@@ -141,23 +149,27 @@ const TestComponent = ({ userId }) => {
 
   return (
     <>
-      <div className="flex  items-center justify-center">
+      <div className="flex items-center justify-center">
         <Sidebar />
-        <main className="bg-white flex-grow px-8 py-8 my-10 mx-40 w-1/4 h-3/4 rounded-3xl">
-          <h1 className="text-2xl font-bold mb-6 text-center mb-5">Personality Test</h1>
+        <main className="bg-box flex-grow px-8 py-8 my-10 mx-40 w-1/4 h-3/4 rounded-3xl">
+          <h1 className="text-2xl font-bold mb-6 text-center">
+            Personality Test
+          </h1>
           <div className="space-y-4">
-            {currentQuestions.map((question, index) => (
+            {currentQuestions.map((question, idx) => (
               <div
-                key={index}
+                key={indexOfFirstQuestion + idx}
                 className="border-b border-gray-200 pb-4 last:border-b-0"
               >
                 <div className="flex items-center space-x-4">
-                  {" "}
-                  <p className="mb-2">{question}</p> 
+                  <p className="mb-2">{question}</p>
                   <select
-                    value={answers[index]}
+                    value={answers[indexOfFirstQuestion + idx] / 20} // Convert score back to 1-5 scale for display
                     onChange={(e) =>
-                      handleChange(index, parseInt(e.target.value))
+                      handleChange(
+                        indexOfFirstQuestion + idx,
+                        parseInt(e.target.value)
+                      )
                     }
                     className="py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                   >
@@ -167,8 +179,7 @@ const TestComponent = ({ userId }) => {
                     <option value={4}>Agree</option>
                     <option value={5}>Fully Agree</option>
                   </select>
-                </div>{" "}
-                {/* End of flex container */}
+                </div>
               </div>
             ))}
           </div>

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-export default function UpdateProfile() {
+export default function userProfile() {
     const router = useRouter();
     const [form, setForm] = useState({
         firstName: '',
         lastName: '',
+        email: '',
         dateOfBirth: '',
         gender: '',
         passwordHash: '',
@@ -26,6 +27,7 @@ export default function UpdateProfile() {
                 setForm({
                     firstName: userData.firstName,
                     lastName: userData.lastName,
+                    email: userData.email,
                     dateOfBirth: userData.dateOfBirth,
                     gender: userData.gender,
                     passwordHash: '',
@@ -79,7 +81,7 @@ export default function UpdateProfile() {
                     <div className="w-full py-8 px-8 md:px-10">
                         <div className="text-center mb-10">
                             <h1 className="font-bold text-3xl text-gray-900">Profile</h1>
-                            <p>Update your profile information</p>
+                            <p>Information about the user!</p>
                         </div>
                         <form onSubmit={handleSubmit}>
                             {/* First name input */}
@@ -90,7 +92,6 @@ export default function UpdateProfile() {
                                     id="firstName"
                                     name="firstName"
                                     value={form.firstName}
-                                    onChange={handleChange}
                                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     required
                                 />
@@ -103,7 +104,18 @@ export default function UpdateProfile() {
                                     id="lastName"
                                     name="lastName"
                                     value={form.lastName}
-                                    onChange={handleChange}
+                                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                    required
+                                />
+                            </div>
+                             {/* Last name input */}
+                             <div className="mb-4">
+                                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">Email</label>
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    value={form.email}
                                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     required
                                 />
@@ -116,7 +128,6 @@ export default function UpdateProfile() {
                                     id="dateOfBirth"
                                     name="dateOfBirth"
                                     value={form.dateOfBirth}
-                                    onChange={handleChange}
                                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     required
                                 />
@@ -129,25 +140,9 @@ export default function UpdateProfile() {
                                     id="gender"
                                     name="gender"
                                     value={form.gender}
-                                    onChange={handleChange}
                                     className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 />
                             </div>
-                            {/* Password input */}
-                            <div className="mb-4">
-                                <label htmlFor="passwordHash" className="block text-sm font-medium text-gray-700">Password</label>
-                                <input
-                                    type="password"
-                                    id="passwordHash"
-                                    name="passwordHash"
-                                    value={form.passwordHash}
-                                    onChange={handleChange}
-                                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                />
-                            </div>
-                            <button type="submit" className="block w-full mt-10 max-w-xs mx-auto bg-button text-gray-900 hover:bg-navbar focus:bg-navbar rounded-lg px-3 py-3 font-semibold">
-                                Update Profile
-                            </button>
                         </form>
                     </div>
                 </div>

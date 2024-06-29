@@ -37,20 +37,27 @@ export default function UsersData() {
     }
   };
 
-  // Function to handle page change
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
 
-  // Calculate total pages
+  const deleteUser = async (id) => {
+    try {
+        await fetch(`https://localhost:7095/api/User/${id}`, {
+            method: 'DELETE',
+        });
+        fetchUsers(); 
+    } catch (error) {
+        console.error('Failed to delete user:', error);
+    }
+};
+
   const totalPages = Math.ceil(users.length / itemsPerPage);
 
-  // Determine visible users
   const indexOfLastUser = currentPage * itemsPerPage;
   const indexOfFirstUser = indexOfLastUser - itemsPerPage;
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
-  // Similar logic for job listings
   return (
     <>
       <div className="flex">

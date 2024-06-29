@@ -22,7 +22,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("https://localhost:7095/api/User/register", {
+      const res = await fetch("https://localhost:7095/api/User/Register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export default function Register() {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="bg-gray-100 text-gray-500 shadow-xl w-full h-3/4 overflow-hidden">
+      <div className="bg-gray-100 text-gray-500 shadow-xl w-full h-screen overflow-hidden">
         <div className="md:flex w-full">
           <div className="hidden md:block w-1/2 bg-button py-10 px-10">
             <img src="/Register.svg" className="w-100 h-auto" />

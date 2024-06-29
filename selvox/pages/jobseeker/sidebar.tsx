@@ -45,7 +45,7 @@ export default function Sidebar() {
           <nav className="flex-1 -mx-3 space-y-3 ">
             <a
               className="flex items-center px-3 py-2 text-gray-800 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
-              href="#"
+              href="/jobseeker/jobList"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +93,7 @@ export default function Sidebar() {
             </a>
 
             <a
-              href="/jobseeker/userProfile"
+              href="/userProfile"
               className="flex items-center px-3 py-2 text-gray-800 transition-colors duration-300 transform rounded-lg  hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
             >
               <svg

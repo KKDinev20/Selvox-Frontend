@@ -136,7 +136,7 @@ export default function Home() {
               </svg>
             </div>
             <h1 className="font-medium text-xl mb-3 lg:px-14 text-darken">
-              Comprehensive Personality Assessments
+              Personality Assessments
             </h1>
             <p className="px-4 text-gray-500">
               Leverage sophisticated assessment tools to understand users'
