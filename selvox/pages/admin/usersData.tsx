@@ -5,8 +5,8 @@ export default function UsersData() {
   const [users, setUsers] = useState([]);
   const [jobListings, setJobListings] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(20); 
-  const pageSize = 100; 
+  const [itemsPerPage, setItemsPerPage] = useState(20);
+  const pageSize = 100;
 
   useEffect(() => {
     fetchUsers(currentPage, pageSize);
@@ -43,14 +43,14 @@ export default function UsersData() {
 
   const deleteUser = async (id) => {
     try {
-        await fetch(`https://localhost:7095/api/User/${id}`, {
-            method: 'DELETE',
-        });
-        fetchUsers(); 
+      await fetch(`https://localhost:7095/api/User/${id}`, {
+        method: "DELETE",
+      });
+      fetchUsers();
     } catch (error) {
-        console.error('Failed to delete user:', error);
+      console.error("Failed to delete user:", error);
     }
-};
+  };
 
   const totalPages = Math.ceil(users.length / itemsPerPage);
 
@@ -63,9 +63,7 @@ export default function UsersData() {
       <div className="flex">
         <Sidebar />
         <div className="w-2/3  mt-10 mx-20">
-          <h1 className="text-3xl font-bold mb-5 text-center">
-            Users
-          </h1>
+          <h1 className="text-3xl font-bold mb-5 text-center">Users</h1>
           <div className="mb-10">
             <table className="min-w-full bg-white border rounded-3xl shadow-md">
               <thead>
@@ -106,7 +104,14 @@ export default function UsersData() {
               >
                 Previous
               </button>
-              <span>{`${currentPage} / ${totalPages}`}</span>
+              <span>
+                <button
+                  onClick={() => handlePageChange(currentPage)}
+                  className="cursor-pointer"
+                >
+                  {`${currentPage} / ${totalPages}`}
+                </button>
+              </span>
               <button
                 onClick={() => handlePageChange(currentPage + 1)}
                 className="bg-navbar text-white px-4 py-2 rounded"
