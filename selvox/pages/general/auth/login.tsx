@@ -1,34 +1,49 @@
+import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 export default function Login() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://localhost:7095/api/User/Login",
+        {
+          email,
+          passwordHash: password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-    const res = await fetch("https://localhost:7095/api/User/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, passwordHash: password }),
-      credentials: "include",
-    });
+      const { userId, role } = response.data;
 
-    if (res.ok) {
-      const data = await res.json();
-      if (data.role === "admin") {
+      // Store session token in a cookie
+      Cookies.set("userId", userId, { expires: 1 }); // Expires in 1 day
+      Cookies.set("userRole", role, { expires: 1 }); // Expires in 1 day
+
+      // Redirect based on role
+      if (role === "admin") {
         router.push("/admin/dashboard");
-      } else if (data.role === "employer") {
+      } else if (role === "employer") {
         router.push("/employer/dashboard");
-      } else if (data.role === "jobseeker") {
+      } else if (role === "jobseeker") {
         router.push("/jobseeker/dashboard");
+      } else {
+        setError("Unknown user role");
       }
-    } else {
-      alert("Invalid email or password");
+    } catch (err) {
+      console.error("Login error:", err.response?.data || err.message);
+      setError("Invalid email or password");
     }
   };
 
@@ -45,42 +60,58 @@ export default function Login() {
               <p>Access your account</p>
             </div>
             <div>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleLogin}>
                 {/* Email input */}
                 <div className="mb-4">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium">
+                    Email
+                  </label>
                   <input
                     type="email"
-                    name="email"
+                    id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                     required
                   />
                 </div>
                 {/* Password input */}
-                <div className="mb-4">
-                  <label htmlFor="passwordHash" className="block text-sm font-medium text-gray-700">Password</label>
+                <div className="mb-6">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium"
+                  >
+                    Password
+                  </label>
                   <input
                     type="password"
-                    name="passwordHash"
+                    id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none"
                     required
                   />
                 </div>
-                <button type="submit" className="block w-full max-w-xs mx-auto bg-button text-gray-900 hover:bg-navbar focus:bg-navbar rounded-lg px-3 py-3 font-semibold">
+                {/* Submit button */}
+                <button
+                  type="submit"
+                  className="block w-1/3 max-w-xs mx-auto bg-button text-gray-900 hover:bg-navbar focus:bg-navbar rounded-lg px-3 py-3 font-semibold"
+                >
                   Log in
                 </button>
-
-                <p className="text-sm mt-8 text-center">
-                  Don't have an account?{' '}
-                  <a href="/general/auth/register" className="text-logo font-semibold hover:underline ml-1">
-                    Register here
-                  </a>
-                </p>
+                {/* Error message */}
+                {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
               </form>
+              {/* Registration link */}
+              <p className="mt-4 text-center text-sm">
+                Don't have an account?{" "}
+                <a
+                  href="/general/auth/register"
+                  className="font-medium text-navbar"
+                >
+                  Register here
+                </a>
+              </p>
             </div>
           </div>
         </div>
